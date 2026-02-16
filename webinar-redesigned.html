@@ -867,34 +867,118 @@
     }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 768px) {
-      .mentor__banner { grid-template-columns: 1fr; min-height: auto; text-align: center; }
-      .mentor__info { padding: clamp(2rem, 4vw, 3rem) 1.5rem 1.5rem; order: 1; }
-      .mentor__photo-wrap { order: 2; max-width: 320px; margin: 0 auto; }
-      .mentor__photo { max-height: 380px; }
-      .mentor__photo img { max-height: 380px; }
-      .mentor__bio { margin: 0 auto 1.5rem; }
-      .mentor__highlights { justify-content: center; }
-      .mentor__actions { justify-content: center; }
-      .mentor__bg-text { display: none; }
-      .agenda__grid { grid-template-columns: 1fr; }
-      .features__grid { grid-template-columns: 1fr; }
+    @media (max-width: 1024px) {
+      .features__grid { grid-template-columns: 1fr 1fr; }
       .badges__grid { grid-template-columns: repeat(2, 1fr); }
-      .urgency__inner { flex-direction: column; text-align: center; }
-      .cta__datetime { flex-direction: column; align-items: center; gap: 0.75rem; }
-      .form-card { padding: 1.5rem; }
-      .stats__grid { grid-template-columns: repeat(2, 1fr); }
-      .stats__item:nth-child(2)::after { display: none; }
+      .mentor__banner { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      :root { --section-py: clamp(3rem, 8vw, 4rem); }
+
+      /* Header */
+      .header { top: 0; }
+      .header__logo img { height: 32px; }
+      .header.scrolled .header__logo img { height: 28px; }
+      .header__whatsapp span { display: none; }
+      .header__whatsapp { padding: 0.5rem; }
+      .header__actions .btn { padding: 0.5rem 1rem; font-size: var(--text-xs); }
+      .header__actions { gap: 0.5rem; }
+
+      /* Hero */
+      .hero { padding: calc(var(--header-height) + 2rem) 0 3rem; }
+      .hero__title { font-size: clamp(1.75rem, 7vw, 2.5rem); }
+      .hero__subtitle { font-size: var(--text-base); max-width: 100%; }
+      .hero__badge { font-size: var(--text-xs); padding: 8px 16px; }
       .hero__scroll { display: none; }
       .cursor-glow { display: none; }
-    }
-    @media (max-width: 480px) {
-      .schools__pills span { font-size: 12px; padding: 6px 14px; }
+      .hero__actions { flex-direction: column; align-items: stretch; }
+      .btn-lg { width: 100%; justify-content: center; }
+
+      /* Stats */
+      .stats__grid { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
+      .stats__item:nth-child(2)::after { display: none; }
+      .stats__number { font-size: var(--text-2xl); }
+
+      /* Mentor */
+      .mentor__banner { grid-template-columns: 1fr; text-align: center; }
+      .mentor__info {
+        padding: 2.5rem 1.5rem 1.5rem; order: 1;
+        align-items: center; padding-right: 1.5rem;
+      }
+      .mentor__photo-wrap { order: 2; max-width: 280px; margin: 0 auto; }
+      .mentor__photo img { width: 100%; margin-left: auto; }
+      .mentor__bio { margin: 0 auto 1.5rem; }
+      .mentor__highlights { justify-content: center; gap: 1.5rem; }
+      .mentor__actions { justify-content: center; }
+      .mentor__name { font-size: var(--text-3xl); }
+      .mentor__bg-text { display: none; }
+
+      /* Value */
+      .value__inner { padding: 2rem 1.5rem; }
+      .value__question { font-size: var(--text-xl); }
+      .value__highlight { font-size: var(--text-base); padding: 0.75rem 1.25rem; }
+
+      /* Schools */
       .schools__logo { max-height: 30px; }
       .schools__logo[alt="Yale"],
       .schools__logo[alt="Chicago Booth"] { max-height: 22px; }
-      .hero__actions { flex-direction: column; align-items: center; }
-      .btn-lg { width: 100%; justify-content: center; }
+      .schools__track { gap: 2.5rem; }
+
+      /* Badges */
+      .badges__grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+      .badge { padding: 1.5rem 1rem; }
+      .badge__icon { width: 48px; height: 48px; font-size: 20px; }
+
+      /* Agenda */
+      .agenda__grid { grid-template-columns: 1fr; gap: 1rem; }
+      .agenda__card { padding: 1.25rem; }
+      .agenda__card h3 { font-size: var(--text-base); }
+      .agenda__num { width: 42px; height: 42px; font-size: var(--text-sm); }
+
+      /* Features */
+      .features__grid { grid-template-columns: 1fr; }
+      .feature { padding: 1.75rem; }
+
+      /* Urgency */
+      .urgency__inner { flex-direction: column; text-align: center; }
+
+      /* CTA / Form */
+      .cta__datetime { flex-direction: column; align-items: center; gap: 0.75rem; }
+      .form-card { padding: 1.5rem; }
+      .cta__title { font-size: var(--text-2xl); }
+      .cta__content { max-width: 100%; }
+
+      /* Footer */
+      .footer { padding: 1.5rem 0; }
+
+      /* Sections */
+      .section-title { font-size: var(--text-2xl); }
+      .section-desc { font-size: var(--text-sm); }
+      .section-eyebrow { font-size: 11px; }
+
+      /* Container */
+      .container { padding: 0 1.25rem; }
+    }
+
+    @media (max-width: 480px) {
+      .hero__title { font-size: clamp(1.5rem, 6.5vw, 2rem); letter-spacing: -0.02em; }
+      .hero__badge { font-size: 11px; }
+      .stats__grid { grid-template-columns: repeat(2, 1fr); }
+      .stats__number { font-size: var(--text-xl); }
+      .stats__label { font-size: 10px; }
+      .badges__grid { grid-template-columns: 1fr 1fr; }
+      .badge { padding: 1.25rem 0.75rem; }
+      .badge__text { font-size: var(--text-xs); }
+      .mentor__highlights { gap: 1rem; }
+      .mentor__highlight-value { font-size: var(--text-xl); }
+      .mentor__name { font-size: var(--text-2xl); }
+      .form-card { padding: 1.25rem; }
+      .form-input { padding: 0.75rem 1rem; font-size: var(--text-sm); }
+      .form-submit { padding: 0.875rem 1.5rem; }
+      .cta__badge { font-size: var(--text-xs); padding: 0.4rem 1rem; }
+      .header__actions .btn { font-size: 11px; padding: 0.4rem 0.75rem; }
+      .whatsapp-float { width: 50px; height: 50px; bottom: 1rem; right: 1rem; }
     }
   </style>
 </head>
